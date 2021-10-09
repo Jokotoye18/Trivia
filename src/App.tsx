@@ -3,6 +3,7 @@ import React from 'react';
 import { registerRootComponent } from 'expo';
 
 import { NavigationContainerComponent } from './navigations/NavigationContainerComponent';
+import { QuestionProvider } from './contexts';
 
 const App = (): JSX.Element => {
   return (
@@ -13,4 +14,10 @@ const App = (): JSX.Element => {
   );
 };
 
-export default registerRootComponent(App);
+export default registerRootComponent((): JSX.Element => {
+  return (
+    <QuestionProvider>
+      <App />
+    </QuestionProvider>
+  );
+});
