@@ -5,6 +5,7 @@ import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
 import { IResult } from '../../models';
 import { globalStyles } from '../../styles';
 import { Text } from '../common';
+import { replaceUnicode } from '../../utils';
 
 type ResultCardProps = {
   result: IResult;
@@ -12,6 +13,8 @@ type ResultCardProps = {
 
 export const ResultCard = ({ result }: ResultCardProps): JSX.Element => {
   const { correct, question } = result;
+
+  const qustio = replaceUnicode(question);
 
   return (
     <View style={[globalStyles.rowBetween, styles.container]}>
@@ -23,7 +26,7 @@ export const ResultCard = ({ result }: ResultCardProps): JSX.Element => {
         )}
       </View>
       <View style={styles.questionBox}>
-        <Text text={question} numberOfLines={3} />
+        <Text text={qustio} numberOfLines={3} />
       </View>
     </View>
   );

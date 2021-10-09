@@ -1,5 +1,7 @@
-import { QuizScreenNavigationProp, QuizScreenRouteProp } from './../../navigations/type';
 import { useNavigation, useRoute } from '@react-navigation/native';
+
+import { replaceUnicode } from '../../utils';
+import { QuizScreenNavigationProp, QuizScreenRouteProp } from './../../navigations/type';
 import { IQuestion, IResult } from './../../models/question.model';
 import { useContext } from 'react';
 import { QuestionContext } from '../../contexts';
@@ -46,7 +48,7 @@ export const useQuizHelper = (): ReturnType => {
   };
   return {
     quizIndex,
-    question,
+    question: replaceUnicode(question),
     category,
     handlePickAnswer,
   };
