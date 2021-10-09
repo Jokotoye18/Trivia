@@ -7,9 +7,9 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "lint": "eslint --ext .tsx --ext .ts  src/",
-    "fix": "npx eslint ./src/**/*.tsx ./*.tsx --fix",
-    "format": "prettier --check  ./src ./*.tsx",
-    "write": "npx prettier --write ./src ./*.tsx"
+    "fix": "npx eslint ./src/**/*.tsx ./src/*.tsx --fix",
+    "format": "prettier --check  ./src",
+    "write": "npx prettier --write ./src"
   },
   "dependencies": {
     "@react-navigation/native": "^6.0.4",
@@ -22,7 +22,8 @@
     "react-native-gesture-handler": "~1.10.2",
     "react-native-safe-area-context": "3.2.0",
     "react-native-screens": "~3.4.0",
-    "react-native-web": "~0.13.12"
+    "react-native-web": "~0.13.12",
+    "unraw": "^2.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

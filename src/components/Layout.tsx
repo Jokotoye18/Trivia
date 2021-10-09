@@ -1,6 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View } from 'react-native';
-import {} from 'react-native-safe-area-context';
+import { ScrollView, SafeAreaView } from 'react-native';
 import { globalStyles } from '../styles';
 
 type LayoutProps = {
@@ -10,7 +9,12 @@ type LayoutProps = {
 export const Layout = ({ children }: LayoutProps): JSX.Element => {
   return (
     <SafeAreaView style={globalStyles.wrapper}>
-      <View style={globalStyles.container}>{children}</View>
+      <ScrollView
+        contentContainerStyle={globalStyles.container}
+        showsVerticalScrollIndicator={false}
+      >
+        {children}
+      </ScrollView>
     </SafeAreaView>
   );
 };

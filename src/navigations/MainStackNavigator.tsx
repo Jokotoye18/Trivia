@@ -12,6 +12,7 @@ export const MainStackNavigator = (): JSX.Element => {
     <MainStack.Navigator
       screenOptions={() => ({
         headerShown: false,
+        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
       })}
     >
       <MainStack.Screen name="Home" component={Home} />

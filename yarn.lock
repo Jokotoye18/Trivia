@@ -6670,6 +6670,11 @@ unpipe@~1.0.0:
   resolved "https://registry.npmjs.org/unpipe/-/unpipe-1.0.0.tgz"
   integrity sha1-sr9O6FFKrmFltIF4KdIbLvSZBOw=
 
+unraw@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/unraw/-/unraw-2.0.1.tgz#7b51dcdfb1e43d59d5e52cdb44d349d029edbaba"
+  integrity sha512-tdOvLfRzHolwYcHS6HIX860MkK9LQ4+oLuNwFYL7bpgTEO64PZrcQxkisgwJYCfF8sKiWLwwu1c83DvMkbefIQ==
+
 unset-value@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/unset-value/-/unset-value-1.0.0.tgz"

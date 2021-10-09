@@ -1,39 +1,20 @@
 import React from 'react';
-import {
-  ActivityIndicator,
-  Button,
-  Image,
-  StyleSheet,
-  useWindowDimensions,
-  View,
-} from 'react-native';
-import { Layout } from '../../components';
+import { ActivityIndicator, View } from 'react-native';
+import { Button, Layout } from '../../components';
 import { Text } from '../../components/common/Text';
-import { images } from '../../constants';
-import useFetch from '../../hooks/useFetch';
-import { IQuestionsResponse } from '../../models';
-import { HomeProps } from '../../navigations/type';
+import { colors } from '../../constants';
+import { useHomeHelper } from '../../hooks';
+import { styles } from './styles';
 
-export const Home = ({ navigation: { navigate } }: HomeProps): JSX.Element => {
-  const { width, height } = useWindowDimensions();
-
-  const handleBegin = () => {
-    navigate('Quiz', {
-      quizIndex: 0,
-      questions: data?.results,
-    });
-  };
-
-  const { isLoading, error, data } = useFetch<IQuestionsResponse>(
-    'https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean',
-  );
+export const Home = (): JSX.Element => {
+  const { isLoading, error, handleBegin } = useHomeHelper();
 
   if (isLoading) {
     return (
       <View
         style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}
       >
-        <ActivityIndicator animating color="red" size="large" />
+        <ActivityIndicator animating color={colors.secondaryBg} size="large" />
       </View>
     );
   }
@@ -50,26 +31,28 @@ export const Home = ({ navigation: { navigate } }: HomeProps): JSX.Element => {
 
   return (
     <Layout>
-      <Image
-        source={images.homeBg}
-        style={StyleSheet.absoluteFillObject}
-        resizeMode="cover"
-        width={width}
-        height={height}
+      <Text
+        text="Welcome to the Trivia challenge!"
+        fontWeight="bold"
+        fontSize={30}
+        textAlign="center"
+        style={styles.title}
       />
-      <View style={{ flexDirection: 'column', justifyContent: 'space-around' }}>
-        <View style={{ flexBasis: '25%' }}>
-          <Text text="Welcome to the Trivia challenge" textAlign="center" />
+      <View style={styles.body}>
+        <View style={styles.contentBox}>
+          <Text
+            text="You will be presented with 10 True or False questions"
+            fontWeight="600"
+            fontSize={25}
+            textAlign="center"
+          />
         </View>
-        <View style={{ flexBasis: '25%' }}>
-          <Text text="Welcome to the Trivia challenge" textAlign="center" />
+        <View style={styles.contentBox}>
+          <Text text="Can you score 100%?" fontWeight="600" fontSize={25} textAlign="center" />
         </View>
-        <View style={{ flexBasis: '25%' }}>
-          <Text text="Welcome to the Trivia challenge" textAlign="center" />
-        </View>
-        <View style={{ flexBasis: '25%', flex: 1, borderWidth: 2 }}>
-          <Button title="Begin" onPress={handleBegin} />
-        </View>
+      </View>
+      <View style={styles.btnBox}>
+        <Button title="Begin" onPress={handleBegin} />
       </View>
     </Layout>
   );
