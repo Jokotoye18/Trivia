@@ -3,4 +3,13 @@
   "compilerOptions": {
     "strict": true
   }
+  // "baseUrl": ".",
+  // "paths": {
+  //   "*": ["src/*"],
+  //   "tests": ["tests/*"],
+  //   "@components/*": ["src/components/*"],
+  //   "@navigations/*": ["src/navigations/*"],
+  //   "@screens/*": ["src/screens/*"],
+  //   "@utils/*": ["src/utils/*"]
+  // }
 }
