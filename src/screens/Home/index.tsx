@@ -1,8 +1,7 @@
 import React from 'react';
-import { ActivityIndicator, View } from 'react-native';
-import { Button, Layout } from '../../components';
+import { View } from 'react-native';
+import { Button, Error, Layout, Loader } from '../../components';
 import { Text } from '../../components/common/Text';
-import { colors } from '../../constants';
 import { useHomeHelper } from '../../hooks';
 import { styles } from './styles';
 
@@ -10,23 +9,11 @@ export const Home = (): JSX.Element => {
   const { isLoading, error, handleBegin } = useHomeHelper();
 
   if (isLoading) {
-    return (
-      <View
-        style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}
-      >
-        <ActivityIndicator animating color={colors.secondaryBg} size="large" />
-      </View>
-    );
+    return <Loader />;
   }
 
   if (error) {
-    return (
-      <View
-        style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}
-      >
-        <Text text="An Error occured!" />
-      </View>
-    );
+    return <Error error={error} />;
   }
 
   return (
